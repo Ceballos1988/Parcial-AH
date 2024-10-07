@@ -1,0 +1,22 @@
+MongoAtlas
+usuario: mariaceballos 
+contraseña: u119MNE8So0NJic4
+
+link que me dio mongo:
+mongodb+srv://mariaceballos:u119MNE8So0NJic4@recetas.l7znk.mongodb.net/recetas?retryWrites=true&w=majority
+
+
+INGRESAR LOGIN CON POSTMAN:
+
+ADMIN:
+{
+  "email": "camila@gmail.com",
+  "password": "12345678"
+}
+
+USER:
+
+{
+  "email": "juan@gmail.com",
+  "password": "12345678"
+}

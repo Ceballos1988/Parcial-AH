@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/uploads/img/favicon.png" sizes="16x16" type="image/png">
+    <!-- Tailwind CSS -->
+    <link rel="stylesheet" href="/output.css">
+   
+    <!-- Tipografias de google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab:wght@400;600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Josefin+Slab:wght@400&display=swap" rel="stylesheet">
+
+</head>
+<body class="bg-gray-100 font-poppins text-gray-900 min-h-screen flex flex-col">
+
+  
+    <header class="flex flex-col justify-center items-center bg-white shadow-md py-6 mb-10">
+        <img src="/uploads/img/Logo.png" alt="Logo ¿Y HOY QUÉ?" class="h-40 mx-auto">
+        <h1 class="text-2xl font-josefin text-black mt-2">Recetas que se adaptan a tu día</h1> <!-- Nuevo texto añadido -->  
+    </header>
+
+
+    <main class="container mx-auto p-4 flex-grow text-center">
+
+        <h2 class="text-2xl font-bold text-rojo mb-4">API de Recetas</h2>
+        <section class="p-6">
+            <p class="text-xl ">Bienvenidos a la API de <strong>¿Y HOY QUÉ?</strong>,<br> una aplicación web que te ayuda a encontrar recetas <br> personalizadas según los ingredientes que tienes en casa. <br> Podrás buscar, filtrar, guardar recetas favoritas, dejar comentarios y mucho más.</p>
+            
+            <section class="routes mt-6">
+                <h2 class="text-2xl font-bold text-rojo mb-4">Rutas de la API</h2>
+                <h3 class="text-xl font-bold text-rojo mb-2">Loguear usuario</h3>
+
+                <ul class="space-y-3">
+
+                  <li>
+                    <strong>Loguin siendo usuario:</strong> 
+                    <a href="http://localhost:3000/api/login" class="text-naranja underline" target="_blank"><strong>POST</strong> http://localhost:3000/api/login</a>
+                    <div>
+                    <button id="jsonExampleButton1" class="mt-2 bg-naranja text-white px-4 py-2 rounded shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-naranja focus:ring-opacity-50">
+                      Ejemplo de usuario
+                    </button>
+                    
+                    <pre id="jsonExample1" class="hidden mt-3 bg-gray-200 p-4 rounded-lg overflow-x-auto text-sm text-black max-w-xl w-full mx-auto text-left">
+                      
+                        {
+                          "email": "juan@gmail.com",
+                          "password": "12345678"
+                        }
+                        
+                    </pre>
+                  </div>
+                  </li>
+                  <h3 class="text-xl font-bold text-rojo mb-2">Ruta recetas</h3>
+                  <li><strong>Obtener todas las Recetas:</strong> 
+                    <a href="http://localhost:3000/api/recipes" class="text-naranja underline" target="_blank"><strong>GET</strong> http://localhost:3000/api/recipes</a>
+                  </li>
+                  <li><strong>Obtener receta por ID:</strong> 
+                    <a href="http://localhost:3000/api/recipes/66f9f8e903c4f3cff9d02ae8" class="text-naranja underline" target="_blank"><strong>GET</strong> http://localhost:3000/api/recipes/:id (66f9f8e903c4f3cff9d02ae8)</a>
+                  </li>
+                  <li><strong>Obtener receta por Categoría:</strong> 
+                    <a href="http://localhost:3000/api/recipes/category/Main Course" class="text-naranja underline" target="_blank"><strong>GET</strong> http://localhost:3000/api/recipes/category/Main Course</a>
+                  </li>
+                  <li><strong>Obtener receta por Dificultad:</strong> 
+                    <a href="http://localhost:3000/api/recipes/difficulty/Easy" class="text-naranja underline" target="_blank"><strong>GET</strong> http://localhost:3000/api/recipes/difficulty/Easy</a>
+                  </li>
+                  <li><strong>Buscar recetas por Nombre:</strong> 
+                    <a href="http://localhost:3000/api/recipes?nombre=Asado" class="text-naranja underline" target="_blank"><strong>GET</strong> http://localhost:3000/api/recipes?nombre=Asado</a>
+                  </li>
+                  <li><strong>Buscar recetas por Página y Límite:</strong> 
+                    <a href="http://localhost:3000/api/recipes?page=1&limit=5" class="text-naranja underline" target="_blank"><strong>GET</strong> http://localhost:3000/api/recipes?page=1&limit=5</a>
+                  </li>
+                  <li><strong>Buscar recetas por Ingredientes:</strong> 
+                    <a href="http://localhost:3000/api/recipes?ingredients=carne,cebolla,queso,papa" class="text-naranja underline" target="_blank"><strong>GET</strong> http://localhost:3000/api/recipes?ingredients=carne,cebolla</a>
+                  </li>
+                  <h3 class="text-xl font-bold text-rojo mb-2">Ruta comentarios</h3>
+                
+                  <li> <strong>Agregar comentario a una receta:</strong> 
+                    <a href="http://localhost:3000/api/comments" class="text-naranja underline" target="_blank"><strong>POST</strong> http://localhost:3000/api/comments</a>
+                    <div>
+                    <button id="jsonExampleButton4" class="mt-2 bg-naranja text-white px-4 py-2 rounded shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-naranja focus:ring-opacity-50">
+                      Mostrar comentario ejemplo (JSON)
+                    </button>
+                  </div>
+                    <pre id="jsonExample4" class="hidden mt-3 bg-gray-200 p-4 rounded-lg overflow-x-auto text-sm text-black max-w-xl w-full mx-auto text-left">
+                      {
+                        "recipeId": "66f9f87c03c4f3cff9cff145", 
+                        "comment": "Esta receta es excelente!",
+                        "rating": 5
+                      }
+                      
+                    </pre>
+                  </li>
+
+                  <li><strong>Ver comentarios de una receta:</strong> 
+                    <a href="http://localhost:3000/api/comments/66f9f86203c4f3cff9cfe322" class="text-naranja underline" target="_blank"><strong>GET</strong> http://localhost:3000/api/comments/:recipeId(66f9f86203c4f3cff9cfe322)</a>
+                  </li>
+
+                  <h3 class="text-xl font-bold text-rojo mb-2">Acceso rol "admin"</h3>
+
+                  <li>
+                    <strong>Loguin siendo admin:</strong> 
+                    <a href="http://localhost:3000/api/login" class="text-naranja underline" target="_blank"><strong>POST</strong> http://localhost:3000/api/login</a>
+                    <div>
+                    <button id="jsonExampleButton2" class="mt-2 bg-naranja text-white px-4 py-2 rounded shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-naranja focus:ring-opacity-50">
+                      Ejemplo de admin
+                    </button>
+                    
+                    <pre id="jsonExample2" class="hidden mt-3 bg-gray-200 p-4 rounded-lg overflow-x-auto text-sm text-black max-w-xl w-full mx-auto text-left">
+                      
+                      {
+                        "email": "camila@gmail.com",
+                        "password": "12345678"
+                      }
+                      
+                    </pre>
+                  </div>
+                  </li>
+
+                  
+
+                  <li><strong>Crear una Receta:</strong> 
+                    <a href="POST http://localhost:3000/api/recipes" class="text-naranja underline" target="_blank"><strong>POST</strong> http://localhost:3000/api/recipes</a>
+                  </li>
+                 
+                  <li class="flex flex-col items-center mt-4">
+                    <button id="jsonExampleButton3" class="mt-2 bg-naranja text-white px-4 py-2 rounded shadow-md hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-naranja focus:ring-opacity-50">
+                      Mostrar receta ejemplo (JSON)
+                    </button>
+                    
+                    <pre id="jsonExample3" class="hidden mt-3 bg-gray-200 p-4 rounded-lg overflow-x-auto text-sm text-black max-w-xl w-full mx-auto text-left">
+                      {
+                        "title": "Ensalada Rusa",
+                        "prepTime": 30,
+                        "difficulty": "Fácil",
+                        "servings": 4,
+                        "ingredients": [
+                          {
+                            "name": "Papa",
+                            "quantity": 1,
+                            "unit": "unidad",
+                            "isRequired": true
+                          },
+                          {
+                            "name": "Zanahoria",
+                            "quantity": 4,
+                            "unit": "unidades",
+                            "isRequired": true
+                          },
+                          {
+                            "name": "Arvejas",
+                            "quantity": 200,
+                            "unit": "g",
+                            "isRequired": true
+                          },
+                          {
+                            "name": "Mayonesa",
+                            "quantity": 100,
+                            "unit": "g",
+                            "isRequired": true
+                          }
+                        ],
+                        "categories": [
+                          "Plato principal"
+                        ],
+                        "steps": [
+                          "Hervir las verduras, mezclar con mayonesa, servir fría."
+                        ],
+                        "image": "uploads/img/ensalada-rusa.jpg"
+                      }
+                      
+                    </pre>
+                  </li>
+                  
+                  <li><strong>Actualizar una Receta:</strong> 
+                    <a href="PUT http://localhost:3000/api/recipes/:id" class="text-naranja underline" target="_blank"><strong>PUT</strong> http://localhost:3000/api/recipes/:id</a>
+                  </li>
+                  <li><strong>Eliminar una Receta:</strong> 
+                    <a href="DELETE http://localhost:3000/api/recipes/:id" class="text-naranja underline" target="_blank"><strong>DELETE</strong> http://localhost:3000/api/recipes/:id</a>
+                  </li>
+                  <li><strong>Ver colección de Usuarios:</strong> 
+                    <a href="GET http://localhost:3000/api/users" class="text-naranja underline" target="_blank"><strong>GET</strong> http://localhost:3000/api/users</a>
+                  </li>
+
+                  
+                </ul>
+              </section>
+              
+              
+              
+            
+    </main>
+
+   
+    <footer class="bg-naranja text-white py-6 text-center mt-auto">
+        <p>Nombre: María Ceballos</p>
+        <p>Materia: Aplicaciones Híbridas</p>
+        <p>Docente: Camila Marcos Galván</p>
+        <p>Comisión: DWN4AP</p>
+    </footer>
+
+</body>
+</html>
+
+
+<script>
+    const jsonButton1 = document.getElementById('jsonExampleButton1');
+    const jsonExample1 = document.getElementById('jsonExample1');
+  
+    jsonButton1.addEventListener('click', () => {
+      jsonExample1.classList.toggle('hidden');
+    });
+
+    const jsonButton2 = document.getElementById('jsonExampleButton2');
+    const jsonExample2 = document.getElementById('jsonExample2');
+  
+    jsonButton2.addEventListener('click', () => {
+      jsonExample2.classList.toggle('hidden');
+    });
+
+    const jsonButton3 = document.getElementById('jsonExampleButton3');
+    const jsonExample3 = document.getElementById('jsonExample3');
+  
+    jsonButton3.addEventListener('click', () => {
+      jsonExample3.classList.toggle('hidden');
+    });
+
+    const jsonButton4 = document.getElementById('jsonExampleButton4');
+    const jsonExample4 = document.getElementById('jsonExample4');
+  
+    jsonButton4.addEventListener('click', () => {
+      jsonExample4.classList.toggle('hidden');
+    });
+  </script>
+  
